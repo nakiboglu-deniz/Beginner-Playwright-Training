@@ -1,16 +1,44 @@
-# Playwright with Python — Advanced Test Automation Training
+# Playwright with Python — Beginner Test Automation Training
 
-This is a skeleton Python project for learning advanced test automation with AI-powered coding assistants like GitHub Copilot.
+This is a hands-on training program covering Python fundamentals, UI automation, API testing with Playwright using AI-powered coding assistants like GitHub Copilot.
 
 ## 📋 Overview
 
-Advanced Self-Study Training Program  ** Organizatory curriculum **
+Beginner Self-Study Training Program  ** Organizatory curriculum **
 
-This training is designed as an advanced self-study program. Participants will follow the instructions provided in the README.md file, clone the repository, and complete the required exercises independently.
+This training is designed as a beginner self-study program. Participants will follow the instructions provided in the README.md file, clone the repository, and complete the required exercises independently.
 To support the learning process, participants can refer to the videos linked within the README.md documentation. The expected duration of the training is up to 40 hours. However, if additional time is needed, participants may continue at a reasonable pace until they complete all requirements.
 
 For questions or support during the training, a dedicated Microsoft Teams group will be available. Participants can post their questions there, and the trainers will respond as their availability permits.
 Upon completing the training, participants must review their solutions using the AI agent provided in the .github folder. Instructions for running and using the agent are available in the README.md file. The resulting output should then be shared in the Microsoft Teams group for review and feedback.
+
+### Part 1: Python Fundamentals and Playwright UI Testing
+
+Part 1 introduces the Python knowledge required for test automation and then applies it to browser-based testing with Playwright.
+
+You will learn:
+
+- Python syntax, variables, data types, operators, and type casting
+- Control flow, loops, functions, variable scope, and error handling
+- Playwright browser, browser context, and page concepts
+- Navigation, locators, interactions, synchronization, and assertions
+- Page Object Model design
+- Screenshots and HTML test reports
+
+### Part 2: Playwright API Testing and AI-Assisted Automation
+
+Part 2 focuses on REST API testing with Playwright's `APIRequestContext` and introduces GitHub Copilot and the Model Context Protocol (MCP) for agent-assisted test creation, execution, and debugging.
+
+You will learn:
+
+- REST API concepts, endpoints, request methods, headers, parameters, and bodies
+- GET, POST, PUT, and DELETE requests
+- Response status, headers, and JSON body validation
+- Negative testing and unsuccessful requests
+- API test refactoring and reusable base URLs
+- GitHub Copilot and MCP concepts
+- Using an AI agent to explore an application, generate tests, run them, and fix failures
+
 **************************************************************************************************************************
 This project demonstrates advanced test automation using:
 
@@ -43,7 +71,6 @@ Once you have finished the exercises, run a full review using one of the two opt
 2. Choose **mode A** (Review) or **mode D** (All of the above)
 3. Share the generated `REVIEW_REPORT_YYYY-MM-DD.md` with us
 
----
 
 ## 🚀 Getting Started
 
@@ -111,8 +138,6 @@ pytest src/tests/smoke_test.py -v
 ```
 
 All 5 smoke tests should pass — you are ready to start.
-
----
 
 ## 🎯 Training Exercises
 
