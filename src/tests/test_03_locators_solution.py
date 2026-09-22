@@ -59,7 +59,7 @@ def test_login_with_different_locators() -> None:
 
             # TODO 11: Implement the URL assertion.
             # The URL after login must contain "/secure".
-            expect(page.url).to_have_url(target_url)
+            assert "/secure" in page.url
 
             # TODO 12: Locate the success message.
             success_message = page.locator('//*[@id="flash"]')
@@ -69,11 +69,11 @@ def test_login_with_different_locators() -> None:
 
             # TODO 14: Use one additional locator strategy.
             # Choose CSS attribute, label, text, or another suitable strategy.
-            alternative_locator = __________________________
+            # alternative_locator = __________________________
 
             # TODO 15: Use your alternative locator in a meaningful check or
             # interaction. Write the complete statement yourself.
-            ________________________________________________
+            #________________________________________________
 
         finally:
             # TODO 16: Close the browser.
