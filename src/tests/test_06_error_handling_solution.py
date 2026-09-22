@@ -16,7 +16,7 @@ from playwright.sync_api import (
     expect,
     sync_playwright,
 )
-
+import re
 
 login_url = "https://the-internet.herokuapp.com/login"
 dynamic_loading_url = "https://the-internet.herokuapp.com/dynamic_loading/1"
@@ -30,14 +30,14 @@ def test_error_handling_exercises() -> None:
     """Complete each diagnosis and prove the corrected behaviour."""
 
     # TODO 1: Start Playwright in synchronous mode.
-    with __________________________ as p:
+    with sync_playwright() as p:
 
         # TODO 2: Launch Chromium in headed mode.
-        browser = __________________________________________
+        browser = p.chromium.launch(headless=False,slow_mo=2000)
 
         try:
             # TODO 3: Create a new page.
-            page = __________________________
+            page = browser.new_page()
 
             # ----------------------------------------------------------
             # Exercise A: Timeout caused by an incorrect locator
@@ -47,16 +47,16 @@ def test_error_handling_exercises() -> None:
             try:
                 # This locator is intentionally incorrect.
                 page.click("#login", timeout=1000)
-            except __________________________ as error:
+            except PlaywrightTimeoutError as error:
                 print("Timeout error caught:", type(error).__name__)
                 print("Cause: the locator #login does not match the button.")
-
+            
             # TODO 4: Locate the real Login button.
-            login_button = __________________________________
+            login_button = page.get_by_role("button",name="Login")
 
             # TODO 5: Prove that the corrected locator is visible.
-            ________________________________________________
-
+            expect(login_button).to_be_visible()
+            
             # ----------------------------------------------------------
             # Exercise B: Element is not visible yet
             # ----------------------------------------------------------
@@ -66,29 +66,29 @@ def test_error_handling_exercises() -> None:
             try:
                 # The message is hidden before Start is clicked.
                 hidden_message.click(timeout=1000)
-            except __________________________ as error:
+            except PlaywrightTimeoutError as error:
                 print("Visibility-related timeout caught:", type(error).__name__)
 
             # TODO 6: Click the Start button.
-            ________________________________________________
+            page.get_by_role("button",name="Start").click()
 
             # TODO 7: Wait until hidden_message becomes visible.
-            ________________________________________________
+            hidden_message.wait_for(state="visible",timeout=0)
 
             # TODO 8: Assert that it has expected_dynamic_text.
-            expect(______________).to_have_text(_____________________)
-
+            expect(hidden_message).to_have_text(expected_dynamic_text)
+            
             # ----------------------------------------------------------
             # Exercise C: Navigation handling
             # ----------------------------------------------------------
             page.goto(redirect_url)
-
+        
             # TODO 9: Wait for navigation while clicking a#redirect.
-            with page.________________(url="**/status_codes"):
-                ____________________________________________
+            with page.expect_navigation(url= re.compile(r".*/status_codes$")):
+                page.locator("a#redirect").click()
 
             # TODO 10: Assert that the destination URL is correct.
-            expect(________).to_have_url(___________________)
+            expect(page).to_have_url(re.compile(r".*/status_codes$"))
 
             # ----------------------------------------------------------
             # Exercise D: Invalid selector
@@ -98,16 +98,16 @@ def test_error_handling_exercises() -> None:
             try:
                 # This selector is intentionally misspelled.
                 page.fill("#usernme", "tomsmith", timeout=1000)
-            except __________________________ as error:
+            except PlaywrightTimeoutError as error:
                 print("Invalid-locator timeout caught:", type(error).__name__)
                 print("Cause: #usernme contains a spelling mistake.")
 
             # TODO 11: Correct the selector and fill the username field.
-            ________________________________________________
+            page.fill("#username", "tomsmith")
 
             # TODO 12: Verify that the field contains tomsmith.
-            expect(____________________).to_have_value(____________)
-
+            expect(page.locator("#username")).to_have_value("tomsmith")
+            
             # ----------------------------------------------------------
             # Exercise E: Assertion mismatch
             # ----------------------------------------------------------
@@ -121,8 +121,8 @@ def test_error_handling_exercises() -> None:
                 print("Cause: the expected heading does not match the page.")
 
             # TODO 13: Add the corrected heading assertion.
-            expect(________).to_have_text(________________)
-
+            expect(heading).to_have_text(expected_heading)
+            """
             # ----------------------------------------------------------
             # Exercise F: Create your own error and correction
             # ----------------------------------------------------------
@@ -135,7 +135,7 @@ def test_error_handling_exercises() -> None:
             # TODO 15: Add a corrected action or assertion that proves
             # your custom diagnosis.
             ________________________________________________
-
+            """
         finally:
             # TODO 16: Close the browser.
-            ________________________________________________
+            browser.close()
