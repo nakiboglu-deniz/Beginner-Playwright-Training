@@ -14,29 +14,29 @@ generated_pet_id = int(time.time() * 1000)
 
 def test_create_update_and_get_pet() -> None:
     # TODO 1: Complete the JSON headers.
-    headers = {______________: __________________, ________: __________________}
+    headers = {"Content-type": "application/json", "Accept": "application/json"}
 
     # TODO 2: Complete the original pet body.
     original_body = {
-        "id": __________________,
+        "id": 1010,
         "category": {"id": 1010, "name": "purring_pets"},
-        "name": __________________,
+        "name": "my_pet",
         "photoUrls": ["string"],
         "tags": [{"id": 1010, "name": "purring"}],
-        "status": __________________,
+        "status": "sold",
     }
 
-    with __________________________ as playwright:  # TODO 3
+    with sync_playwright() as playwright:  # TODO 3
         request_context = None
         try:
             # TODO 4: Create a context with the v2 base URL.
             request_context = playwright.request.new_context(
-                base_url=____________________________________
+                base_url= 'https://petstore.swagger.io/v2/'
             )
 
             # TODO 5: Create the original pet with POST.
-            create_response = ______________________________________
-            assert _________________________________________________
+            create_response = request_context.post(pet_path)
+            //assert 
             created_pet_id = _______________________________________
 
             # TODO 6: Build an updated body with the same ID.
