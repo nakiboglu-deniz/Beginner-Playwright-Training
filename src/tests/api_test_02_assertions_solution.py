@@ -23,69 +23,70 @@ def test_sold_pets_assertions_and_response_body() -> None:
 
     # TODO 1: Create the request parameters for status sold.
     parameters = {
-        ________: ________,
+        "status": 'sold',
     }
 
     # TODO 2: Create the Accept: application/json header.
     headers = {
-        ________: __________________,
+        'Accept': "application/json",
     }
 
     # TODO 3: Start Playwright in synchronous mode.
-    with __________________________ as playwright:
+    with sync_playwright() as playwright:
         request_context = None
 
         try:
             # TODO 4: Create an APIRequestContext.
-            request_context = ______________________________________
+            request_context = playwright.request.new_context()
 
             # TODO 5: Send the GET request.
-            response = request_context.____(
-                __________________,
-                headers=________,
-                params=__________,
+            response = request_context.get(
+                find_by_status_url,
+                headers=headers,
+                params=parameters,
             )
 
             # TODO 6: Build an error message containing expected and actual status.
             error_message = (
-                f"Expected response status: {____________________}; "
-                f"actual response status: {________________}"
+                f"Expected response status: {expected_status_code}; "
+                f"actual response status: {response.status}"
             )
 
             # TODO 7: Assert that the response status is 200.
-            assert __________________________________, _____________
+            assert response.status == expected_status_code, error_message
 
             # TODO 8: Convert the response body to Python data.
-            response_body = ______________________________
+            response_body = response.json()
+            print(response_body)
 
             # TODO 9: Assert that the response body is a list.
-            assert isinstance(_____________, ______), (
+            assert isinstance(response_body, list), (
                 f"Expected a list, received {type(response_body).__name__}."
             )
 
             # TODO 10: Assert that every returned pet has status sold.
             assert all(
-                __________________________________________
+                pet["status"] == "sold"
                 for pet in response_body
             ), "The response contains a pet whose status is not sold."
 
             # TODO 11: Create a list containing all returned pet IDs.
-            sold_pet_ids = [________________ for pet in _____________]
+            sold_pet_ids = [pet["id"] for pet in response_body]
 
             # TODO 12: Print the list of sold-pet IDs.
-            print("Sold pet IDs:", ______________)
-
+            print("Sold pet IDs:", sold_pet_ids)
+            
             # TODO 13: If at least one pet exists, print selected values.
-            if ________________________________:
-                first_pet = ___________________
-                print("First pet ID:", ____________________)
-                print("First pet name:", __________________)
+            if not sold_pet_ids:
+                first_pet = response_body[0]
+                print("First pet ID:", first_pet["id"])
+                print("First pet name:", first_pet["name"])
 
-                category = ________________________________
+                category = first_pet["category"]
                 if isinstance(category, dict):
-                    print("First pet category:", __________________)
-
+                    print("First pet category:", category.get("name"))
+            
         finally:
             # TODO 14: Dispose of the request context if it was created.
             if request_context is not None:
-                ____________________________________________
+                request_context.dispose()
