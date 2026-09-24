@@ -35,39 +35,40 @@ def test_create_update_and_get_pet() -> None:
             )
 
             # TODO 5: Create the original pet with POST.
-            create_response = request_context.post(pet_path)
-            //assert 
-            created_pet_id = _______________________________________
+            create_response = request_context.post(pet_path, data=original_body)
+            assert create_response.status == expected_success_status
+            created_pet_id = create_response.json()["id"]
+            
 
             # TODO 6: Build an updated body with the same ID.
             updated_body = {
                 **original_body,
-                "id": __________________,
-                "name": __________________,
-                "status": __________________,
+                "id": created_pet_id,
+                "name": "my new cat",
+                "status": "vaccinated",
             }
 
             # TODO 7: Update the pet with PUT.
-            update_response = ______________________________________
-            assert _________________________________________________
+            update_response = request_context.put(pet_path,data=updated_body)
+            assert update_response.status == expected_success_status
 
             # TODO 8: Read and validate the PUT response body.
-            updated_pet = __________________________________________
-            assert _________________________________________________
-            assert _________________________________________________
-            assert _________________________________________________
+            updated_pet = update_response.json()
+            assert updated_pet["id"] == created_pet_id
+            assert updated_pet["name"] == updated_body["name"]
+            assert updated_pet["status"] == updated_body["status"]
 
             # TODO 9: Retrieve the updated pet by ID.
-            get_response = _________________________________________
-            assert _________________________________________________
-            retrieved_pet = ________________________________________
+            get_response = request_context.get(f"{pet_path}/{created_pet_id}")
+            assert get_response.status == expected_success_status
+            retrieved_pet = get_response.json()
 
             # TODO 10: Verify the persisted name and status.
-            assert _________________________________________________
-            assert _________________________________________________
+            assert retrieved_pet["name"] == updated_pet["name"]
+            assert retrieved_pet["status"] == updated_pet["status"]
 
             print("Updated pet:", retrieved_pet)
         finally:
             # TODO 11: Dispose of the request context.
             if request_context is not None:
-                ____________________________________________
+                request_context.dispose()

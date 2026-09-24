@@ -47,11 +47,11 @@ def test_create_update_and_get_pet() -> None:
                 "status": __________________,
             }
 
-            # TODO 7: Update the pet with PUT.
+            # TODO 7: Update the pet with PUT and validate status.
             update_response = ______________________________________
             assert _________________________________________________
 
-            # TODO 8: Read and validate the PUT response body.
+            # TODO 8: Read and validate the PUT response body (id,name,status).
             updated_pet = __________________________________________
             assert _________________________________________________
             assert _________________________________________________
