@@ -5,7 +5,7 @@ Run: pytest src/tests/test_07_get_refactored.py -v -s     --html=report_ex7.html
 """
 
 from playwright.sync_api import sync_playwright
-from config.constants import BASE_URL
+from pages.constants import BASE_URL
 
 
 def test_find_sold_pets_with_base_url() -> None:
