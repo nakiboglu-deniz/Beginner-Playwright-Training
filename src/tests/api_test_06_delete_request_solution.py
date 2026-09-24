@@ -13,12 +13,12 @@ pet_id = int(time.time() * 1000)
 
 def test_create_delete_and_verify_pet() -> None:
     # TODO 1: Complete the JSON headers used to create the pet.
-    create_headers = {______________: __________________, ________: __________________}
+    create_headers = {"Accept": "application/json", "Content-type": "application/json"}
 
     # TODO 2: Complete the DELETE headers, including api_key=special-key.
     delete_headers = {
-        ________: __________________,
-        ________: __________________,
+        "Accept": "application/json",
+        "api_key": "special-key"
     }
 
     body = {
@@ -28,31 +28,31 @@ def test_create_delete_and_verify_pet() -> None:
         "status": "available",
     }
 
-    with __________________________ as playwright:  # TODO 3
+    with sync_playwright() as playwright:  # TODO 3
         request_context = None
         try:
             # TODO 4: Create the request context with base_url.
-            request_context = ______________________________________
+            request_context = playwright.request.new_context(base_url=base_url)
 
             # TODO 5: Create the pet and assert success.
-            create_response = ______________________________________
-            assert _________________________________________________
-            created_pet_id = _______________________________________
+            create_response = request_context.post("pet",headers=create_headers,data=body)
+            assert create_response.status == 200
+            created_pet_id = create_response.json()["id"]
 
             # TODO 6: Delete the created pet.
-            delete_response = ______________________________________
-            print("DELETE status:", ________________________________)
+            delete_response = request_context.delete(f"pet/{created_pet_id}",headers=delete_headers)
+            print("DELETE status:", delete_response.status)
 
             # TODO 7: Assert that DELETE succeeded.
-            assert _________________________________________________
+            assert delete_response.status == 200
 
             # TODO 8: Request the deleted pet with GET.
-            get_response = _________________________________________
-            print("GET after DELETE status:", ______________________)
+            get_response = request_context.get(f"pet/{created_pet_id}")
+            print("GET after DELETE status:", get_response.status)
 
             # TODO 9: Assert that the pet is not found anymore.
-            assert _________________________________________________
+            assert get_response.status == 404
         finally:
             # TODO 10: Dispose of the request context.
             if request_context is not None:
-                ____________________________________________
+                request_context.dispose()

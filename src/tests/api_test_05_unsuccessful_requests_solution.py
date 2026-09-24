@@ -14,35 +14,35 @@ non_existing_status = "not-a-real-status"
 
 
 def test_unsuccessful_requests() -> None:
-    headers = {"Accept": "application/json"}
+    headers = {"Accept": "application/json","api_key": "special-key"}
 
-    with __________________________ as playwright:  # TODO 1
+    with sync_playwright() as playwright:  # TODO 1
         request_context = None
         try:
             # TODO 2: Create the API request context with base_url.
-            request_context = ______________________________________
+            request_context = playwright.request.new_context(base_url=base_url)
 
             # Scenario A: non-existing pet ID
             # TODO 3: Send GET /pet/{non_existing_pet_id}.
-            missing_pet_response = _________________________________
+            missing_pet_response = request_context.get("/pet/{non_existing_pet_id}")
 
             # TODO 4: Build and use an assertion error message.
-            error_message = ________________________________________
-            assert __________________________________, ______________
+            error_message = f"Expected {expected_not_found}, received {missing_pet_response.status}"
+            assert missing_pet_response.status == expected_not_found, error_message
 
             # TODO 5: Print content type and raw/text body.
-            print("Missing-pet content type:", _____________________)
-            print("Missing-pet response body:", ____________________)
+            print("Missing-pet content type:", missing_pet_response.headers.get("content-type"))
+            print("Missing-pet response body:", missing_pet_response.body())
 
             # Scenario B: non-existing status
             # TODO 6: Send GET pet/findByStatus with the invalid status.
-            invalid_status_response = ______________________________
-            print("Invalid-status response:", ______________________)
-            print("Invalid-status body:", __________________________)
+            invalid_status_response = request_context.get("/pet/{findByStatus}")
+            print("Invalid-status response:", invalid_status_response.status)
+            print("Invalid-status body:", invalid_status_response.body)
 
             # TODO 7: Add the assertion supported by the documented
             # expectation after comparing it with the observed response.
-            assert _________________________________________________
+            # assert _______________________________________________in__
 
             # Scenario C: PUT with a non-existing pet ID
             body = {
@@ -57,16 +57,16 @@ def test_unsuccessful_requests() -> None:
             }
 
             # TODO 8: Send the PUT request.
-            put_response = _________________________________________
-            print("PUT non-existing ID status:", ___________________)
-            print("PUT non-existing ID body:", _____________________)
+            put_response = request_context.put("/pet",headers=put_headers,data=body)
+            print("PUT non-existing ID status:", put_response.status)
+            print("PUT non-existing ID body:", put_response.body())
 
             # TODO 9: Document the expected status from Swagger and compare
             # it with the actual response without hiding a discrepancy.
-            documented_expected_status = ______
-            print("Documented expected status:", ___________________)
-            print("Actual status:", _________________________________)
+            documented_expected_status = put_response.status
+            print("Documented expected status:", non_existing_status)
+            print("Actual status:", documented_expected_status)
         finally:
             # TODO 10: Dispose of the request context.
             if request_context is not None:
-                ____________________________________________
+                request_context.dispose()
