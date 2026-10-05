@@ -81,6 +81,87 @@ If the developer chooses C or D, ask:
 - **Run UI tests**: `pytest src/tests/<file>.py -v --headed`
 - **Run API tests**: `pytest src/tests/<file>.py -v -s`
 
+## Project structure
+
+```text
+.
+├── .github/
+│   └── agents/
+│       └── ai-mentor.md
+├── Exercises/
+│   ├── APITesting01_GetRequest.md
+│   ├── APITesting02_Assertions.md
+│   ├── APITesting03_PostRequest.md
+│   ├── APITesting04_PutRequest.md
+│   ├── APITesting05_UnsuccessfulRequests.md
+│   ├── APITesting06_DeleteRequest.md
+│   ├── APITesting07_Refactoring.md
+│   ├── Module01_OpenWebsite.md
+│   ├── Module02_BrowserPageFundementals.md
+│   ├── Module03_Locators.md
+│   ├── Module04_WaitAndSynchronization.md
+│   ├── Module05_Assertions.md
+│   ├── Module06_ErrorHandling.md
+│   ├── Module07_LoginFlowWithPOM.md
+│   ├── Module08_Reporting.md
+│   └── Python_Exercises.md
+├── src/
+│   ├── conftest.py
+│   ├── pages/
+│   │   ├── login_page.py
+│   │   └── login_page_solution.py
+│   ├── tests/
+│   │   ├── smoke_test.py
+│   │   ├── test_01_openwebsite.py
+│   │   ├── test_01_openwebsite_solution.py
+│   │   ├── test_02_browser_page.py
+│   │   ├── test_02_browser_page_solution.py
+│   │   ├── test_03_locators.py
+│   │   ├── test_03_locators_solution.py
+│   │   ├── test_04_waits.py
+│   │   ├── test_04_waits_solution.py
+│   │   ├── test_05_assertions.py
+│   │   ├── test_05_assertions_solution.py
+│   │   ├── test_06_error_handling.py
+│   │   ├── test_06_error_handling_solution.py
+│   │   ├── test_07_login_pom.py
+│   │   ├── test_07_login_pom_solution.py
+│   │   ├── test_08_reporting.py
+│   │   ├── test_08_reporting_solution.py
+│   │   ├── api_test_01_get_request.py
+│   │   ├── api_test_01_get_request_solution.py
+│   │   ├── api_test_02_assertions.py
+│   │   ├── api_test_02_assertions_solution.py
+│   │   ├── api_test_03_post_request.py
+│   │   ├── api_test_03_post_request_solution.py
+│   │   ├── api_test_04_put_request.py
+│   │   ├── api_test_04_put_request_solution.py
+│   │   ├── api_test_05_unsuccessful_requests.py
+│   │   ├── api_test_05_unsuccessful_requests_solution.py
+│   │   ├── api_test_06_delete_request.py
+│   │   ├── api_test_06_delete_request_solution.py
+│   │   ├── api_test_07_refactoring.py
+│   │   └── api_test_07_refactoring_solution.py
+│   └── __pycache__/
+├── README.md
+├── pytest.ini
+├── requirements.txt
+└── .gitignore
+```
+
+## UI Testing - Browser & Page
+
+The browser and page exercises are defined in the `Exercises/` folder and cover the core UI automation workflow from first page open to robust validation and reporting.
+
+- `Module01_OpenWebsite.md` — open the target website, capture the page title and main heading, and assert basic page state.
+- `Module02_BrowserPageFundementals.md` — browser lifecycle, page creation, navigation, viewport handling, and core browser/page fundamentals.
+- `Module03_Locators.md` — build reliable selectors using `get_by_role()`, `get_by_label()`, `get_by_placeholder()`, text filters, and scoped locators.
+- `Module04_WaitAndSynchronization.md` — wait strategies, synchronization points, and handling dynamic content reliably.
+- `Module05_Assertions.md` — assert user-visible state, verify login flows, and validate expected UI results correctly.
+- `Module06_ErrorHandling.md` — diagnose failing flows, fix incorrect interactions, and recover from common test automation issues.
+- `Module07_LoginFlowWithPOM.md` — implement valid and invalid login scenarios using the page object model and reusable page methods.
+- `Module08_Reporting.md` — capture screenshots, add test evidence, and produce useful failure reporting for UI tests.
+
 ---
 
 ## Review guidelines (Mode A checklist)
