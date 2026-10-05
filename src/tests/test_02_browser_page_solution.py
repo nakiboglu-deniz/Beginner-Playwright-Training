@@ -60,12 +60,12 @@ def test_add_and_remove_elements() -> None:
 
             # TODO 11: Assert that the page title is EXPECTED_TITLE.
             assert page.title() == expected_title, (
-                f"Expected title {EXPECTED_TITLE!r}, received {page.title()!r}."
+                f"Expected title {expected_title!r}, received {page.title()!r}."
             )
 
             # TODO 12: Assert that the current URL is TARGET_URL.
             assert page.url == target_url, (
-                f"Expected URL {TARGET_URL!r}, received {page.url!r}."
+                f"Expected URL {target_url!r}, received {page.url!r}."
             )
 
             # TODO 13: Assert that the first Delete button is visible.

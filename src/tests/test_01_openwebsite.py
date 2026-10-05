@@ -11,7 +11,7 @@ from playwright.sync_api import sync_playwright
 target_url = "https://the-internet.herokuapp.com"
 expected_title = "The Internet"
 expected_header = "Welcome to the-internet"
-expected_viewport = {"width": 1920, "height": 1080}
+
 
 
 def test_open_website() -> None:

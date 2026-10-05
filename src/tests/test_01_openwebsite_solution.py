@@ -11,7 +11,6 @@ from playwright.sync_api import sync_playwright
 target_url = "https://the-internet.herokuapp.com"
 expected_title = "The Internet"
 expected_header = "Welcome to the-internet"
-expected_viewport = {"width": 1920, "height": 1080}
 
 
 def test_open_website() -> None:
@@ -33,12 +32,7 @@ def test_open_website() -> None:
 
         try:
             # TODO 3: Create a new page with a 1920 x 1080 viewport.
-            page = browser.new_page(
-                viewport={
-                    "width": expected_viewport["width"],
-                    "height": expected_viewport["height"],
-                }
-            )
+            page = browser.new_page()
 
             # TODO 4: Navigate to TARGET_URL.
             page.goto(target_url)
@@ -56,12 +50,12 @@ def test_open_website() -> None:
 
             # TODO 8: Assert that the page title equals EXPECTED_TITLE.
             assert page_title == expected_title, (
-                f"Expected title {EXPECTED_TITLE!r}, received {page_title!r}."
+                f"Expected title {expected_title!r}, received {page_title!r}."
             )
 
             # TODO 9: Assert that the main header equals EXPECTED_HEADER.
             assert main_header == expected_header, (
-                f"Expected header {EXPECTED_HEADER!r}, received {main_header!r}."
+                f"Expected header {expected_header!r}, received {main_header!r}."
             )
 
             # TODO 10: Add one additional assertion of your own.
