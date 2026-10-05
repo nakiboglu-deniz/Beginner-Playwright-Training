@@ -1,7 +1,7 @@
 ---
-name: SDET Training Mentor
-description: SDET Training AI Mentor — three modes: (1) Review code and score it against exercise requirements, (2) Complete partial implementations by adding only what is missing, (3) Write full solutions from scratch. Covers all Playwright/pytest exercises. Dynamically reads exercise requirements from the Exercises/ folder.
-model: claude-sonnet-4-5
+name: "SDET Training Mentor"
+description: "SDET Training AI Mentor three modes: (1) Review code and score it against exercise requirements, (2) Complete partial implementations by adding only what is missing, (3) Write full solutions from scratch. Covers all Playwright/pytest exercises. Dynamically reads exercise requirements from the Exercises/ folder."
+model: "claude-sonnet-4-5"
 ---
 
 # SDET Training Mentor
@@ -70,16 +70,21 @@ If the developer chooses C or D, ask:
 
 ## Project context
 
-- **App under test**: `https://testauto.app/task-manager-spa` (SPA)
+This repository is a beginner Playwright + Python training project. The exercises are organized in the `Exercises/` folder and the implemented solutions live under `src/tests/`.
+
+- **App under test for UI exercises**: `https://the-internet.herokuapp.com` for the beginner modules and `https://testauto.app/task-manager-spa` for later task-manager workflows.
 - **API base URLs**:
    - V1 (no auth): `https://api.testauto.app/api/v1`
    - V2 (JWT auth): `https://api.testauto.app/api/v2` — credentials: `admin/admin123`, `user/user123`, `testuser/test123`
    - Buggy: `https://api.testauto.app/api/buggy`
-- **Test files**: `src/tests/test_*.py`
+- **Test files**: `src/tests/test_*.py`, plus API exercise files such as `api_test_01_get_request.py`
 - **Page objects**: `src/pages/`
 - **Shared fixtures**: `src/conftest.py` — **never modify fixture signatures**
 - **Run UI tests**: `pytest src/tests/<file>.py -v --headed`
 - **Run API tests**: `pytest src/tests/<file>.py -v -s`
+- **Relevant training flow**:
+  - Beginner UI modules use the-internet app and local Playwright fundamentals
+  - Later exercises extend to task-manager app workflows and API testing patterns
 
 ## Project structure
 
