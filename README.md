@@ -736,7 +736,84 @@ This is a training project. Feel free to add test cases, improve page objects, o
 
 ## 📖 Resources
 
-The following videos, playlists, articles, and documentation are mapped to each training exercise and can be used as learning material while progressing through the course.
+The resources below are aligned with the actual exercises in the `Exercises/` folder and are intended to support each stage of the training.
+
+### Python Fundamentals
+
+- [Python Official Tutorial](https://docs.python.org/3/tutorial/)
+- [Python Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+- [Python Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html)
+- [Pytest Documentation](https://docs.pytest.org/en/stable/)
+
+### Python exercises (`Exercises/Python_Exercises.md`)
+
+- [Python Basics](https://docs.python.org/3/tutorial/introduction.html)
+- [Control Flow](https://docs.python.org/3/tutorial/controlflow.html)
+- [Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+- [Lists and Loops](https://docs.python.org/3/tutorial/introduction.html#lists)
+
+### UI exercises
+
+#### Module 01 — Open Website (`Exercises/Module01_OpenWebsite.md`) & Module 02 — Browser Page Fundamentals (`Exercises/Module02_BrowserPageFundementals.md`)
+
+- [Playwright with Python and Pytest (Playlist)](https://www.youtube.com/watch?v=XSHERugHQCY)
+
+#### Module 03 — Locators (`Exercises/Module03_Locators.md`)
+
+- [Locators](https://www.youtube.com/watch?v=MXFAHvcqh7I)
+
+#### Module 04 — Waits and Synchronization (`Exercises/Module04_WaitAndSynchronization.md`)
+
+- [Auto-waiting, Timeouts, Assertions, Codagen](https://www.youtube.com/watch?v=drW3w7ESaJo)
+
+#### Module 05 — Assertions (`Exercises/Module05_Assertions.md`)
+
+- [Playwright Assertions](https://www.youtube.com/watch?v=hYNOFle3zic)
+
+#### Module 06 — Error Handling (`Exercises/Module06_ErrorHandling.md`)
+
+- [Debugging tests](https://playwright.dev/python/docs/debug)
+- [Trace viewer](https://playwright.dev/python/docs/trace-viewer)
+- [Playwright troubleshooting](https://playwright.dev/python/docs/troubleshooting)
+
+#### Module 07 — Login Flow with POM (`Exercises/Module07_LoginFlowWithPOM.md`)
+
+- [Page Object Model in Playwright](https://playwright.dev/python/docs/pom)
+- [Reusable page objects](https://playwright.dev/python/docs/test-pom)
+- [Login flow examples](https://playwright.dev/python/docs/test-auth)
+
+#### Module 08 — Reporting (`Exercises/Module08_Reporting.md`)
+
+- [HTML report](https://playwright.dev/python/docs/test-reporters)
+- [Screenshots and videos](https://playwright.dev/python/docs/screenshots)
+- [Allure integration](https://allurereport.org/docs/playwright/)
+
+### API exercises
+
+#### API Testing foundations (`Exercises/APITesting01_GetRequest.md`, `Exercises/APITesting02_Assertions.md`)
+
+- [API Test](https://www.youtube.com/watch?v=22xbuLgAzZY)
+- [APIRequestContext](https://playwright.dev/python/docs/api/class-apirequestcontext)
+- [Swagger Petstore API](https://petstore.swagger.io/)
+
+#### API CRUD exercises (`Exercises/APITesting03_PostRequest.md`, `Exercises/APITesting04_PutRequest.md`, `Exercises/APITesting06_DeleteRequest.md`)
+
+- [HTTP Methods overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+- [REST API basics](https://restfulapi.net/)
+- [JSON and HTTP requests](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
+
+#### Negative and refactoring exercises (`Exercises/APITesting05_UnsuccessfulRequests.md`, `Exercises/APITesting07_Refactoring.md`)
+
+- [Playwright API error handling](https://playwright.dev/python/docs/api-testing#making-requests)
+- [Test refactoring patterns](https://playwright.dev/python/docs/test-fixtures)
+- [Pytest fixtures](https://docs.pytest.org/en/stable/explanation/fixtures.html)
+
+### Suggested learning order
+
+1. Complete the Python exercises first.
+2. Move through the UI modules in order from Module 01 to Module 08.
+3. Finish with the API modules from GET to DELETE and refactoring.
+4. Use the official Playwright and Python docs whenever a concept feels unclear.
 
 ---
 
