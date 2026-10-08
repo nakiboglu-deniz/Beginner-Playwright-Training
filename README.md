@@ -756,6 +756,7 @@ The resources below are aligned with the actual exercises in the `Exercises/` fo
 
 #### Module 01 — Open Website (`Exercises/Module01_OpenWebsite.md`) & Module 02 — Browser Page Fundamentals (`Exercises/Module02_BrowserPageFundementals.md`)
 
+- [Setup Environment & Writing Tests](https://www.youtube.com/watch?v=7pgCLbX2sVM)
 - [Playwright with Python and Pytest (Playlist)](https://www.youtube.com/watch?v=XSHERugHQCY)
 
 #### Module 03 — Locators (`Exercises/Module03_Locators.md`)
@@ -774,11 +775,10 @@ The resources below are aligned with the actual exercises in the `Exercises/` fo
 
 - [Debugging tests](https://playwright.dev/python/docs/debug)
 - [Trace viewer](https://playwright.dev/python/docs/trace-viewer)
-- [Playwright troubleshooting](https://playwright.dev/python/docs/troubleshooting)
 
 #### Module 07 — Login Flow with POM (`Exercises/Module07_LoginFlowWithPOM.md`)
 
-- [Page Object Model in Playwright](https://playwright.dev/python/docs/pom)
+- [Page Object Model in Playwright](https://www.youtube.com/watch?v=rAec3mZFhF0&t=280s)
 - [Reusable page objects](https://playwright.dev/python/docs/test-pom)
 - [Login flow examples](https://playwright.dev/python/docs/test-auth)
 
@@ -793,20 +793,16 @@ The resources below are aligned with the actual exercises in the `Exercises/` fo
 #### API Testing foundations (`Exercises/APITesting01_GetRequest.md`, `Exercises/APITesting02_Assertions.md`)
 
 - [API Test](https://www.youtube.com/watch?v=22xbuLgAzZY)
-- [APIRequestContext](https://playwright.dev/python/docs/api/class-apirequestcontext)
-- [Swagger Petstore API](https://petstore.swagger.io/)
 
 #### API CRUD exercises (`Exercises/APITesting03_PostRequest.md`, `Exercises/APITesting04_PutRequest.md`, `Exercises/APITesting06_DeleteRequest.md`)
 
-- [HTTP Methods overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
-- [REST API basics](https://restfulapi.net/)
-- [JSON and HTTP requests](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
+- [API CRUD Guide](https://www.youtube.com/watch?v=tOj5Lv-cgKs)
 
 #### Negative and refactoring exercises (`Exercises/APITesting05_UnsuccessfulRequests.md`, `Exercises/APITesting07_Refactoring.md`)
 
 - [Playwright API error handling](https://playwright.dev/python/docs/api-testing#making-requests)
-- [Test refactoring patterns](https://playwright.dev/python/docs/test-fixtures)
-- [Pytest fixtures](https://docs.pytest.org/en/stable/explanation/fixtures.html)
+- [Resilience and Edge Cases Video 1](https://www.youtube.com/watch?v=NSDdeDYr3dY)
+- [Resilience and Edge Cases Video 2](https://www.youtube.com/watch?v=axBr9gnITOo)
 
 ### Suggested learning order
 
@@ -814,187 +810,6 @@ The resources below are aligned with the actual exercises in the `Exercises/` fo
 2. Move through the UI modules in order from Module 01 to Module 08.
 3. Finish with the API modules from GET to DELETE and refactoring.
 4. Use the official Playwright and Python docs whenever a concept feels unclear.
-
----
-
-# UI Testing — Browser & Page
-
-## Point 1 — Browser Context Management
-
-### Video
-- [Playwright with Python and Pytest (Playlist)](https://www.youtube.com/watch?v=XSHERugHQCY)
-
----
-
-## Point 2 — Network Interception
-
-### Videos
-- [Network Interception Video 1](https://www.youtube.com/watch?v=egqzRXOc7cU)
-- [Network Interception Video 2](https://www.youtube.com/watch?v=qjqAe8qe0kY)
-
----
-
-# UI Testing — Locators & Interactions
-
-## Point 3 — Advanced Locator Strategies
-
-### Video
-- [Advanced Locator Strategies](https://www.youtube.com/watch?v=MXFAHvcqh7I)
-
-### Additional Material
-For the advanced parts:
-- `filter()`
-- `nth()`
-- `first`
-- `last`
-- Dynamic loops
-- Board-column scoping
-
-Use:
-
-```text
-6-Playwright_MOD3_MOD4.pptx
-```
-
----
-
-## Point 4 — Performance and Tracing
-
-### Videos
-- [Performance and Tracing Video 1](https://www.youtube.com/watch?v=LrOXygsYnnk)
-- [Performance and Tracing Video 2](https://www.youtube.com/watch?v=Zu_qzwH8zSs)
-- [Performance and Tracing Video 3](https://www.youtube.com/watch?v=HNGPAjk_BCI)
-
-### Documentation
-- [HAR Replay and Analysis](https://ray.run/videos/148-network-replay-har-playwright-tutorial-part-79)
-
----
-
-# UI Testing — Test Quality
-
-## Point 5 — Visual Testing
-
-### Videos
-- [Visual Testing Video 1](https://www.youtube.com/watch?v=O5AyMSxfFbg)
-- [Visual Testing Video 2](https://www.youtube.com/watch?v=LrOXygsYnnk)
-
----
-
-## Point 6 — Advanced POM Patterns
-
-### Videos
-- [Advanced POM Patterns Video 1](https://www.youtube.com/watch?v=h-fpoNZdWCg)
-- [Advanced POM Patterns Video 2](https://www.youtube.com/watch?v=AGYZk9ZlA4s&list=PLP5_A7hnY1Tj4pbbDY29wPdEgWu65uiWL)
-- [Advanced POM Patterns Video 3](https://www.youtube.com/watch?v=lDK7UKWC0ak)
-- [Advanced POM Patterns Video 4](https://www.youtube.com/watch?v=k488kAtT-Pw)
-
-### Documentation
-- [Reusable Components with Playwright Page Objects](https://python.plainenglish.io/enhancing-the-page-object-pattern-with-reusable-components-in-playwright-python-5a6d4481de30)
-
----
-
-# Advanced Test Design
-
-## Point 7 — Fixtures and Test Lifecycle
-
-### Video
-- [Fixtures and Test Lifecycle](https://www.youtube.com/watch?v=N_rCdPoltWo)
-
-### Documentation
-- [Playwright Test Runners](https://playwright.dev/python/docs/test-runners)
-- [Pytest Fixtures Documentation](https://docs.pytest.org/en/stable/reference/fixtures.html)
-
----
-
-## Point 8 — Parallel Execution and Sharding
-
-### Videos
-- [Parallel Execution Video 1](https://www.youtube.com/watch?v=TSWXTqjMDkI)
-- [Parallel Execution Video 2](https://www.youtube.com/watch?v=tBnfDaPAH44)
-
-### Documentation
-- [pytest-xdist Documentation](https://pytest-xdist.readthedocs.io/en/stable/how-to.html)
-
----
-
-## Point 9 — Allure Reporting
-
-### Video
-- [Allure Reporting](https://www.youtube.com/watch?v=VHwl78QXF_0)
-
-### Documentation
-- [Allure Official Documentation](https://allurereport.org/docs/playwright/)
-- [Allure Attachments and Trace Guide](https://qaskills.sh/blog/playwright-allure-attachment-trace-guide)
-- [BrowserStack Guide: Allure Integration](https://www.browserstack.com/guide/integrate-allure-with-playwright)
-- [Playwright Python Allure Example Project](https://github.com/nirtal85/Playwright-Python-Example)
-
----
-
-# API Testing
-
-## Point 10 — API Authentication
-
-### Playlists & Videos
-- [API Authentication Playlist 1](https://www.youtube.com/playlist?list=PLHT5rv7PEE4Oa19_17xS4I5Rbn297WJkt)
-- [API Authentication Playlist 2](https://www.youtube.com/playlist?list=PLhW3qG5bs-L8WcAa9cfXaqGe0-Cq85y4X)
-- [Playwright API Fundamentals](https://www.youtube.com/watch?v=XSHERugHQCY)
-
----
-
-## Point 11 — Advanced Response Validation
-
-### Documentation
-- [Playwright API Testing Documentation](https://playwright.dev/python/docs/api-testing)
-- [Pagination, Filtering and Sorting Validation](https://medium.com/@gunashekarr11/handling-pagination-filtering-sorting-validations-through-the-playwright-api-layer-612f010f0943)
-
-### Video
-- [Advanced API Validation](https://www.youtube.com/watch?v=qyCPtbEztvw)
-
----
-
-## Point 12 — API Fixtures and Test Data
-
-Already covered in previous videos regarding:
-
-- Fixtures
-- API Testing
-- Parallel Execution
-
-### Video
-- [API Fixtures and Test Data](https://www.youtube.com/watch?v=HPP_62VJQ3g)
-
----
-
-## Point 13 — Chained Workflows and Hybrid Tests
-
-### Video
-- [Hybrid UI + API Testing](https://www.youtube.com/watch?v=dv95_b8F8qM)
-
-### Documentation
-- [Playwright API Testing Documentation](https://playwright.dev/python/docs/api-testing)
-- [Using Playwright for API and UI Testing Together](https://dev.to/ramamallika_kadali_49a08f/day-7-how-i-use-playwright-for-api-and-ui-testing-together-lh)
-
----
-
-## Point 14 — Multi-User and Role-Based Testing
-
-### Documentation
-- [Testing Multiple Users and Roles with Playwright](https://playwrightqa.blogspot.com/2024/10/testing-multiple-users-and-roles-with.html)
-- [Multi-User Testing with Playwright Fixtures](https://medium.com/@edtang44/isolate-and-conquer-multi-user-testing-with-playwright-fixtures-f211ad438974)
-- [Handling Authentication for Multiple Users](https://www.neovasolutions.com/2024/11/14/handling-authentication-for-multiple-user-logins-in-playwright/)
-
-### Videos
-- [Multi-User Testing Video 1](https://www.youtube.com/watch?v=XSHERugHQCY)
-- [Multi-User Testing Video 2](https://www.youtube.com/watch?v=o-R1PTJ5Lws)
-- [Multi-User Testing Video 3](https://www.youtube.com/watch?v=0mfLHPLZ7_k)
-
----
-
-## Point 15 — Resilience and Edge Cases
-
-### Videos
-- [Resilience and Edge Cases Video 1](https://www.youtube.com/watch?v=NSDdeDYr3dY)
-- [Resilience and Edge Cases Video 2](https://www.youtube.com/watch?v=axBr9gnITOo)
 
 ---
 
