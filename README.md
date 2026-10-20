@@ -424,15 +424,6 @@ Review the current Git changes, summarize them, and suggest a concise commit mes
 - Confirm that browser sessions are closed after execution.
 - Keep generated code aligned with the repository's established structure and conventions.
 
-### Option 2 — Claude Code (CLI)
-
-1. Open a terminal in the project root and run:
-   ```bash
-   claude --agent ai-mentor
-   ```
-2. Choose **mode A** (Review) or **mode D** (All of the above)
-3. Share the generated `REVIEW_REPORT_YYYY-MM-DD.md` with us
-
 ## 🎯 Training Exercises
 
 The training is divided into a series of progressively advanced exercises located in the **`Exercises/`** folder. Each exercise focuses on a specific area of Playwright, pytest, and modern test automation practices.
